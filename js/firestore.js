@@ -44,19 +44,12 @@ export async function submitFormToDB(uid, formData) {
  * @returns {Promise<boolean>} True if registrations are open, false otherwise.
  */
 export async function getRegistrationStatus() {
-  try {
-    // Publicly readable per security rules
-    const docRef = doc(db, "config", "settings");
-    const docSnap = await getDoc(docRef);
-
-    if (docSnap.exists() && docSnap.data().registrationsOpen === true) {
-      return true;
-    }
-    return false;
-  } catch (error) {
-    console.error("Error reading registration status:", error);
-    return false; // Default to closed on any error
-  }
+  // --- TEMPORARY CHANGE FOR DEMO ---
+  // This is hardcoded to 'true' so the form is always open for showcasing.
+  // The actual setting in Firebase is still 'false'.
+  console.warn("Registration status is hardcoded to OPEN for demo purposes.");
+  return true;
+  // --- END OF TEMPORARY CHANGE ---
 }
 
 /**
