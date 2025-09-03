@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NSS SCE RECRUITMENT 2K25-26</title>
+  <link rel="icon" href="/images/NSS Logo.png" type="image/png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/form.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="bg-[#CFCFF5] font-sans">
+
+  <div id="toast"
+    class="hidden fixed top-5 right-5 flex items-center w-full max-w-xs p-4 text-gray-500 bg-white rounded-lg shadow-lg z-50"
+    role="alert">
+    <div id="toast-icon"
+      class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-blue-500 bg-blue-100 rounded-lg"></div>
+    <div id="toast-message" class="ms-3 text-sm font-normal"></div>
+    <button type="button" id="toast-close-btn"
+      class="ms-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex items-center justify-center h-8 w-8">
+      <span class="sr-only">Close</span>
+      <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+      </svg>
+    </button>
+  </div>
+
+  <main class="min-h-screen flex justify-center md:items-center p-4">
+    <div class="max-w-lg w-full bg-white border border-gray-200 rounded-lg shadow-lg">
+      <picture>
+        <source srcset="/images/avif/NssSceBanner.avif" type="image/avif">
+        <source srcset="/images/webp/NssSceBanner.webp" type="image/webp">
+        <img class="rounded-t-lg" src="/images/NssSceBanner.png" alt="NSS SCE Banner" />
+      </picture>
+
+      <div id="user-header" class="hidden flex items-center justify-between p-4 border-b border-gray-200">
+        <p class="text-sm font-medium text-gray-700">Welcome, <span id="user-display-name" class="font-bold"></span>
+        </p>
+        <button id="logout-btn"
+          class="text-white bg-[#3B82F6] hover:bg-[#2563EB] focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-4 py-2 text-center">Logout</button>
+      </div>
+
+      <div class="overflow-hidden">
+        <div id="form-stepper" class="flex">
+
+          <div id="page-1" class="w-full flex-shrink-0 p-8">
+            <h5 class="mb-4 text-2xl font-bold tracking-tight text-gray-900">NSS SCE RECRUITMENT 2K25-26</h5>
+            <div class="mb-6 text-base font-medium text-gray-800 space-y-4 border-t border-b border-gray-200 py-4">
+              <div>
+                <p class="font-medium text-gray-900 mb-1">Important Dates:</p>
+                <p>
+                  <strong>Flashmob</strong> - 15-08-2025<br>
+                  <strong>Orientation</strong> - 16-08-2025<br>
+                  <strong>Recruitment</strong> - 17-08-2025
+                </p>
+              </div>
+              <div>
+                <p class="font-medium text-black-900 mb-2">Follow for live updates:</p>
+                <div class="flex items-center gap-5">
+                  <a href="https://www.instagram.com/nss.sce.kiit/" target="_blank"
+                    class="text-gray-700 hover:text-gray-900" aria-label="Instagram">
+                    <svg class="w-7 h-7" fill="currentColor">
+                      <use xlink:href="/images/icons.svg#icon-instagram"></use>
+                    </svg>
+                  </a>
+                  <a href="https://x.com/nss_sce_kiit" target="_blank" class="text-gray-700 hover:text-gray-900"
+                    aria-label="X">
+                    <svg class="w-6 h-6" fill="currentColor">
+                      <use xlink:href="/images/icons.svg#icon-x"></use>
+                    </svg>
+                  </a>
+                  <a href="https://www.youtube.com/c/NSSSCE" target="_blank" class="text-gray-700 hover:text-gray-900"
+                    aria-label="YouTube">
+                    <svg class="w-8 h-8" fill="currentColor">
+                      <use xlink:href="/images/icons.svg#icon-youtube"></use>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+              <div>
+                <p class="font-medium text-black-900 mb-1">If you face any problems in registration or for any sort of
+                  queries DM us on Telegram or text us on:</p>
+                <ul class="list-disc list-outside pl-5 ml-1 mt-2">
+                  <li><strong>Ankit Kumar</strong> - 8709914709</li>
+                  <li><strong>Kaustubh Rastogi</strong> - 7985078516</li>
+                  <li><strong>Piyush Agrawal</strong> - 7635088808</li>
+                </ul>
+              </div>
+            </div>
+            <p class="mb-5 text-base font-medium text-gray-900">To fill in the form, please sign in with your
+              <strong>KIIT Gmail ID</strong> to continue.
+            </p>
+            <button type="button" id="google-signin-btn"
+              class="w-full text-white bg-[#3B82F6] hover:bg-[#2563EB] focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-lg px-5 py-3 text-center inline-flex items-center justify-center">
+              <svg class="w-5 h-5 me-2" fill="currentColor">
+                <use xlink:href="/images/icons.svg#icon-google"></use>
+              </svg>
+              Sign in with Google
+            </button>
+            <div id="registrations-closed-message"
+              class="hidden mt-4 p-4 text-center text-lg font-bold text-red-800 rounded-lg bg-red-50" role="alert">
+              Registrations are currently closed.
+            </div>
+          </div>
+
+          <div id="page-2" class="w-full flex-shrink-0 p-6">
+            <h5 class="mb-4 text-2xl font-bold tracking-tight text-gray-900">Personal Details</h5>
+            <form class="space-y-4" novalidate>
+              <div>
+                <label for="name" class="block mb-2 text-sm font-medium text-gray-900">Full Name</label>
+                <div class="relative">
+                  <div class="absolute top-1/2 start-0 -translate-y-1/2 ps-3.5 pointer-events-none"><svg
+                      class="w-4 h-4 text-gray-500" fill="currentColor">
+                      <use xlink:href="/images/icons.svg#icon-user"></use>
+                    </svg></div>
+                  <input type="text" id="name"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5">
+                </div>
+                <p id="name-error" class="text-red-500 text-sm mt-1 hidden"></p>
+              </div>
+              <div>
+                <label for="roll-number" class="block mb-2 text-sm font-medium text-gray-900">Roll Number</label>
+                <div class="relative">
+                  <div class="absolute top-1/2 start-0 -translate-y-1/2 ps-3.5 pointer-events-none"><svg
+                      class="w-5 h-5 text-gray-500" fill="currentColor">
+                      <use xlink:href="/images/icons.svg#icon-roll-number"></use>
+                    </svg></div>
+                  <input type="text" id="roll-number"
+                    class="bg-gray-100 border border-gray-300 text-gray-500 text-sm rounded-lg block w-full ps-10 p-2.5"
+                    readonly>
+                </div>
+                <p id="roll-number-error" class="text-red-500 text-sm mt-1 hidden"></p>
+              </div>
+              <div>
+                <label for="kiit-email" class="block mb-2 text-sm font-medium text-gray-900">KIIT Email ID</label>
+                <div class="relative">
+                  <div class="absolute top-1/2 start-0 -translate-y-1/2 ps-3.5 pointer-events-none"><svg
+                      class="w-4 h-4 text-gray-500" fill="currentColor">
+                      <use xlink:href="/images/icons.svg#icon-email"></use>
+                    </svg></div>
+                  <input type="email" id="kiit-email"
+                    class="bg-gray-100 border border-gray-300 text-gray-500 text-sm rounded-lg block w-full ps-10 p-2.5"
+                    readonly>
+                </div>
+                <p id="kiit-email-error" class="text-red-500 text-sm mt-1 hidden"></p>
+              </div>
+              <!-- Phone Number Field -->
+              <!-- Phone Number Field -->
+              <div class="mb-6">
+                <label for="phone-input" class="block mb-2 text-sm font-medium text-gray-900">
+                  Phone Number
+                </label>
+                <div class="flex items-center">
+                  <!-- Country selector -->
+                  <div class="relative shrink-0">
+                    <button id="phone-country-btn"
+                      class="inline-flex items-center py-2.5 px-4 text-sm font-medium text-gray-900 bg-gray-100 border border-gray-300 rounded-l-lg focus:outline-none"
+                      type="button">
+                      <img id="phone-country-flag" src="/images/flags/in.svg" alt="India flag"
+                        class="h-4 w-4 mr-2 align-middle" />
+                      <span class="dial">+91</span>
+                      <svg class="w-2.5 h-2.5 ml-2.5 align-middle" fill="none" viewBox="0 0 10 6"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="m1 1 4 4 4-4" />
+                      </svg>
+                    </button>
+
+                    <div id="phone-country-menu"
+                      class="hidden absolute left-0 bottom-full mb-1 z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-52">
+                      <ul class="py-2 text-sm text-gray-700" aria-labelledby="phone-country-btn">
+                        <li>
+                          <button type="button"
+                            class="inline-flex items-center w-full px-4 py-2 text-sm hover:bg-[#2563EB] hover:text-white focus:outline-none">
+                            <img src="/images/flags/in.svg" alt="India flag" class="h-4 w-4 mr-2 align-middle" />
+                            India (+91)
+                          </button>
+                        </li>
+                        <li>
+                          <button type="button"
+                            class="inline-flex items-center w-full px-4 py-2 text-sm hover:bg-[#2563EB] hover:text-white focus:outline-none">
+                            <img src="/images/flags/np.svg" alt="Nepal flag" class="h-4 w-4 mr-2 align-middle" />
+                            Nepal (+977)
+                          </button>
+                        </li>
+                        <li>
+                          <button type="button"
+                            class="inline-flex items-center w-full px-4 py-2 text-sm hover:bg-[#2563EB] hover:text-white focus:outline-none">
+                            <img src="/images/flags/bd.svg" alt="Bangladesh flag" class="h-4 w-4 mr-2 align-middle" />
+                            Bangladesh (+880)
+                          </button>
+                        </li>
+                        <li>
+                          <button type="button"
+                            class="inline-flex items-center w-full px-4 py-2 text-sm hover:bg-[#2563EB] hover:text-white focus:outline-none">
+                            <img src="/images/flags/lk.svg" alt="Sri Lanka flag" class="h-4 w-4 mr-2 align-middle" />
+                            Sri Lanka (+975)
+                          </button>
+                        </li>
+                        <li>
+                          <button type="button"
+                            class="inline-flex items-center w-full px-4 py-2 text-sm hover:bg-[#2563EB] hover:text-white focus:outline-none">
+                            <img src="/images/flags/other.svg" alt="Custom flag" class="h-4 w-4 mr-2 align-middle" />
+                            Other
+                          </button>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <!-- Phone number input -->
+                  <div class="relative w-full">
+                    <input type="tel" id="phone-input"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-r-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-3 p-2.5"
+                      placeholder="XXXXXXXXXX" required />
+                  </div>
+                </div>
+                <p id="phone-input-error" class="text-red-500 text-sm mt-1 hidden"></p>
+              </div>
+
+              <!-- WhatsApp Number Field -->
+              <div>
+                <label for="whatsapp-input" class="block mb-2 text-sm font-medium text-gray-900">
+                  WhatsApp Number
+                </label>
+                <div class="flex items-center">
+                  <!-- Country selector -->
+                  <div class="relative shrink-0">
+                    <button id="whatsapp-country-btn"
+                      class="inline-flex items-center py-2.5 px-4 text-sm font-medium text-gray-900 bg-gray-100 border border-gray-300 rounded-l-lg focus:outline-none"
+                      type="button">
+                      <img id="whatsapp-country-flag" src="/images/flags/in.svg" alt="India flag"
+                        class="h-4 w-4 mr-2 align-middle" />
+                      <span class="dial">+91</span>
+                      <svg class="w-2.5 h-2.5 ml-2.5 align-middle" fill="none" viewBox="0 0 10 6"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="m1 1 4 4 4-4" />
+                      </svg>
+                    </button>
+
+                    <div id="whatsapp-country-menu"
+                      class="hidden absolute left-0 bottom-full mb-1 z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-52">
+                      <ul class="py-2 text-sm text-gray-700" aria-labelledby="whatsapp-country-btn">
+                        <li>
+                          <button type="button"
+                            class="inline-flex items-center w-full px-4 py-2 text-sm hover:bg-[#2563EB] hover:text-white focus:outline-none">
+                            <img src="/images/flags/in.svg" alt="India flag" class="h-4 w-4 mr-2 align-middle" />
+                            India (+91)
+                          </button>
+                        </li>
+                        <li>
+                          <button type="button"
+                            class="inline-flex items-center w-full px-4 py-2 text-sm hover:bg-[#2563EB] hover:text-white focus:outline-none">
+                            <img src="/images/flags/np.svg" alt="Nepal flag" class="h-4 w-4 mr-2 align-middle" />
+                            Nepal (+977)
+                          </button>
+                        </li>
+                        <li>
+                          <button type="button"
+                            class="inline-flex items-center w-full px-4 py-2 text-sm hover:bg-[#2563EB] hover:text-white focus:outline-none">
+                            <img src="/images/flags/bd.svg" alt="Bangladesh flag" class="h-4 w-4 mr-2 align-middle" />
+                            Bangladesh (+880)
+                          </button>
+                        </li>
+                        <li>
+                          <button type="button"
+                            class="inline-flex items-center w-full px-4 py-2 text-sm hover:bg-[#2563EB] hover:text-white focus:outline-none">
+                            <img src="/images/flags/lk.svg" alt="Sri Lanka flag" class="h-4 w-4 mr-2 align-middle" />
+                            Sri Lanka (+975)
+                          </button>
+                        </li>
+                        <li>
+                          <button type="button"
+                            class="inline-flex items-center w-full px-4 py-2 text-sm hover:bg-[#2563EB] hover:text-white focus:outline-none">
+                            <img src="/images/flags/other.svg" alt="Custom flag" class="h-4 w-4 mr-2 align-middle" />
+                            Other
+                          </button>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <!-- WhatsApp number input -->
+                  <div class="relative w-full">
+                    <input type="tel" id="whatsapp-input"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-r-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-3 p-2.5"
+                      placeholder="XXXXXXXXXX" required />
+                  </div>
+                </div>
+                <p id="whatsapp-input-error" class="text-red-500 text-sm mt-1 hidden"></p>
+              </div>
+
+
+
+              <div class="flex justify-between pt-2">
+                <button type="button" id="back-btn-page2"
+                  class="text-white bg-[#3B82F6] hover:bg-[#2563EB] focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Back</button>
+                <button type="button" id="next-btn-page2"
+                  class="text-white bg-[#3B82F6] hover:bg-[#2563EB] focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center disabled:opacity-50 disabled:cursor-not-allowed">Next</button>
+              </div>
+            </form>
+          </div>
+
+          <div id="page-3" class="w-full flex-shrink-0 p-6">
+            <h5 class="mb-4 text-2xl font-bold tracking-tight text-gray-900">Academic Details</h5>
+            <form class="space-y-4" novalidate>
+              <div>
+                <label for="personal-email" class="block mb-2 text-sm font-medium text-gray-900">Personal Email
+                  ID</label>
+                <div class="relative">
+                  <div class="absolute top-1/2 start-0 -translate-y-1/2 ps-3.5 pointer-events-none"><svg
+                      class="w-4 h-4 text-gray-500" fill="currentColor">
+                      <use xlink:href="/images/icons.svg#icon-email"></use>
+                    </svg></div>
+                  <input type="email" id="personal-email"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5"
+                    placeholder="your.personal@email.com">
+                </div>
+                <p id="personal-email-error" class="text-red-500 text-sm mt-1 hidden"></p>
+              </div>
+              <div>
+                <label for="gender" class="block mb-2 text-sm font-medium text-gray-900">Gender</label>
+                <select id="gender"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                  <option value="" selected disabled>Choose your gender</option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                </select>
+                <p id="gender-error" class="text-red-500 text-sm mt-1 hidden"></p>
+              </div>
+              <div>
+                <label for="branch" class="block mb-2 text-sm font-medium text-gray-900">Branch</label>
+                <select id="branch"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                  <option value="" selected disabled>Choose your branch</option>
+                  <option value="CSE">CSE</option>
+                  <option value="CSE AI">CSE AI</option>
+                  <option value="CSE DS">CSE DS</option>
+                  <option value="IT">IT</option>
+                  <option value="CSSE">CSSE</option>
+                  <option value="CSCE">CSCE</option>
+                </select>
+                <p id="branch-error" class="text-red-500 text-sm mt-1 hidden"></p>
+              </div>
+              <div class="relative">
+                <label for="language-checkbox-button" class="block mb-2 text-sm font-medium text-gray-900">Languages
+                  Known</label>
+                <button id="language-checkbox-button" type="button"
+                  class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 text-left inline-flex items-center justify-between">
+                  <span id="language-button-text" class="text-gray-500">Select languages</span>
+                </button>
+                <p id="languages-error" class="text-red-500 text-sm mt-1 hidden"></p>
+                <div id="language-checkbox-dropdown"
+                  class="z-10 hidden absolute mt-1 w-full bg-white rounded-lg shadow-lg border">
+                  <ul class="p-3 space-y-1 text-sm text-gray-700">
+                    <li>
+                      <div class="flex items-center p-2 rounded-sm hover:bg-gray-100"><input name="language"
+                          id="lang-eng" type="checkbox" value="English"
+                          class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500"><label
+                          for="lang-eng"
+                          class="w-full ms-2 text-sm font-medium text-gray-900 rounded-sm">English</label></div>
+                    </li>
+                    <li>
+                      <div class="flex items-center p-2 rounded-sm hover:bg-gray-100"><input name="language"
+                          id="lang-hin" type="checkbox" value="Hindi"
+                          class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500"><label
+                          for="lang-hin" class="w-full ms-2 text-sm font-medium text-gray-900 rounded-sm">Hindi</label>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="flex items-center p-2 rounded-sm hover:bg-gray-100"><input name="language"
+                          id="lang-odi" type="checkbox" value="Odia"
+                          class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500"><label
+                          for="lang-odi" class="w-full ms-2 text-sm font-medium text-gray-900 rounded-sm">Odia</label>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="flex items-center p-2 rounded-sm hover:bg-gray-100"><input name="language"
+                          id="lang-other" type="checkbox" value="Other"
+                          class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500"><label
+                          for="lang-other"
+                          class="w-full ms-2 text-sm font-medium text-gray-900 rounded-sm">Other</label></div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div id="other-language-container" class="hidden">
+                <label for="other-language-input" class="block mb-2 text-sm font-medium text-gray-900">Please specify
+                  other language</label>
+                <input type="text" id="other-language-input"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                  placeholder="Enter language">
+                <p id="other-language-input-error" class="text-red-500 text-sm mt-1 hidden"></p>
+              </div>
+              <div>
+                <label for="hostel" class="block mb-2 text-sm font-medium text-gray-900">Hostel</label>
+                <div class="relative">
+                  <div class="absolute top-1/2 start-0 -translate-y-1/2 ps-3.5 pointer-events-none"><svg
+                      class="w-5 h-5 text-gray-500" fill="currentColor">
+                      <use xlink:href="/images/icons.svg#icon-hostel"></use>
+                    </svg></div>
+                  <input type="text" id="hostel"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5"
+                    placeholder="e.g. KP-25A, QC-2 OR Day Boarder">
+                </div>
+                <p id="hostel-error" class="text-red-500 text-sm mt-1 hidden"></p>
+              </div>
+              <div class="flex justify-between pt-2">
+                <button type="button" id="back-btn-page3"
+                  class="text-white bg-[#3B82F6] hover:bg-[#2563EB] focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Back</button>
+                <button type="button" id="next-btn-page3"
+                  class="text-white bg-[#3B82F6] hover:bg-[#2563EB] focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center disabled:opacity-50 disabled:cursor-not-allowed">Next</button>
+              </div>
+            </form>
+          </div>
+
+          <div id="page-4" class="w-full flex-shrink-0 p-6">
+            <h5 class="mb-4 text-2xl font-bold tracking-tight text-gray-900">Skills & Interests</h5>
+            <form class="space-y-4" novalidate>
+              <div>
+                <label for="primary-competency" class="block mb-2 text-sm font-medium text-gray-900">Primary
+                  Competency</label>
+                <select id="primary-competency"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                  <option value="" selected disabled>Choose primary skill</option>
+                  <option value="Content Writing">Content Writing</option>
+                  <option value="Graphic Designing">Graphic Designing</option>
+                  <option value="Video Editing">Video Editing</option>
+                  <option value="Photography (DSLR)">Photography (with DSLR)</option>
+                  <option value="Photography (Mobile)">Photography (iPhone or High End Phone)</option>
+                  <option value="Videography">Videography (DSLR/ iPhone/ Google Pixel)</option>
+                  <option value="General Volunteer">N/A (General Volunteer)</option>
+                </select>
+                <p id="primary-competency-error" class="text-red-500 text-sm mt-1 hidden"></p>
+              </div>
+              <div>
+                <label for="other-competency" class="block mb-2 text-sm font-medium text-gray-900">Any Other
+                  Competency</label>
+                <select id="other-competency"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                  <option value="" selected disabled>Choose another skill</option>
+                  <option value="Content Writing">Content Writing</option>
+                  <option value="Graphic Designing">Graphic Designing</option>
+                  <option value="Video Editing">Video Editing</option>
+                  <option value="Photography (DSLR)">Photography (with DSLR)</option>
+                  <option value="Photography (Mobile)">Photography (iPhone or High end Phone)</option>
+                  <option value="Videography">Videography (DSLR/ iPhone/ Google Pixel)</option>
+                  <option value="N/A">N/A</option>
+                </select>
+                <p id="other-competency-error" class="text-red-500 text-sm mt-1 hidden"></p>
+              </div>
+              <div>
+                <label for="hobbies" class="block mb-2 text-sm font-medium text-gray-900">Any hobbies/Interest</label>
+                <textarea id="hobbies" rows="10"
+                  class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
+                  placeholder="If not, write N/A"></textarea>
+                <p id="hobbies-error" class="text-red-500 text-sm mt-1 hidden"></p>
+              </div>
+              <div class="flex justify-between pt-2">
+                <button type="button" id="back-btn-page4"
+                  class="text-white bg-[#3B82F6] hover:bg-[#2563EB] focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Back</button>
+                <button type="button" id="submit-btn"
+                  class="text-white bg-green-600 hover:bg-green-700 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center disabled:opacity-50 disabled:cursor-not-allowed">Submit</button>
+              </div>
+            </form>
+          </div>
+
+          <div id="page-5" class="w-full flex-shrink-0 p-6 py-1 pt-2">
+            <div class="flex items-center gap-4 mb-4">
+              <svg class="w-16 h-16 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clip-rule="evenodd"></path>
+              </svg>
+              <div class="text-left">
+                <h5 class="text-3xl font-bold tracking-tight text-gray-900">Thank You!</h5>
+                <p class="text-gray-700 text-base font-medium">We will soon send you a confirmation mail with further
+                  details.</p>
+              </div>
+            </div>
+
+            <div class="text-base text-left text-gray-800 font-medium bg-gray-50 p-4 py-1 rounded-lg space-y-4">
+              <div>
+                <p class="font-medium text-gray-900 mb-1">Important Dates:</p>
+                <p>
+                  <strong>Flashmob</strong> - 15-08-2025<br>
+                  <strong>Orientation</strong> - 16-08-2025<br>
+                  <strong>Recruitment</strong> - 17-08-2025
+                </p>
+              </div>
+              <div>
+                <p class="font-medium text-black-900 mb-1">For any sort of queries DM us on Telegram or
+                  text
+                  on:</p>
+                <ul class="list-disc list-outside pl-5 ml-1 mt-2">
+                  <li><strong>Ankit Kumar</strong> - 8709914709</li>
+                  <li><strong>Kaustubh Rastogi</strong> - 7985078516</li>
+                  <li><strong>Piyush Agrawal</strong> - 7635088808</li>
+                </ul>
+              </div>
+              <a href="https://t.me/+-wnVcDYO_btjYjVl" target="_blank"
+                class="flex items-center justify-center gap-2 font-semibold text-blue-600 hover:underline border-t border-gray-200">
+                <svg class="w-6 h-6" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <linearGradient id="logosTelegram0" x1="50%" x2="50%" y1="0%" y2="100%">
+                      <stop offset="0%" stop-color="#2aabee" />
+                      <stop offset="100%" stop-color="#229ed9" />
+                    </linearGradient>
+                  </defs>
+                  <path fill="url(#logosTelegram0)"
+                    d="M128 0C94.06 0 61.48 13.494 37.5 37.49A128.04 128.04 0 0 0 0 128c0 33.934 13.5 66.514 37.5 90.51C61.48 242.506 94.06 256 128 256s66.52-13.494 90.5-37.49c24-23.996 37.5-56.576 37.5-90.51s-13.5-66.514-37.5-90.51C194.52 13.494 161.94 0 128 0" />
+                  <path fill="#fff"
+                    d="M57.94 126.648q55.98-24.384 74.64-32.152c35.56-14.786 42.94-17.354 47.76-17.441c1.06-.017 3.42.245 4.96 1.49c1.28 1.05 1.64 2.47 1.82 3.467c.16.996.38 3.266.2 5.038c-1.92 20.24-10.26 69.356-14.5 92.026c-1.78 9.592-5.32 12.808-8.74 13.122c-7.44.684-13.08-4.912-20.28-9.63c-11.26-7.386-17.62-11.982-28.56-19.188c-12.64-8.328-4.44-12.906 2.76-20.386c1.88-1.958 34.64-31.748 35.26-34.45c.08-.338.16-1.598-.6-2.262c-.74-.666-1.84-.438-2.64-.258c-1.14.256-19.12 12.152-54 35.686c-5.1 3.508-9.72 5.218-13.88 5.128c-4.56-.098-13.36-2.584-19.9-4.708c-8-2.606-14.38-3.984-13.82-8.41c.28-2.304 3.46-4.662 9.52-7.072" />
+                </svg>
+                <span>Join our Telegram group for Recruitment updates</span>
+              </a>
+            </div>
+
+            <div class="mt-4">
+              <p class="font-medium text-base text-gray-900 mb-2 text-center">Follow our social media handles:</p>
+              <div class="flex justify-center items-center gap-6">
+
+                <a href="https://www.instagram.com/nss.sce.kiit/" target="_blank" aria-label="Instagram">
+                  <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100"
+                    viewBox="0 0 48 48">
+                    <radialGradient id="yOrnnhliCrdS2gy~4tD8ma_Xy10Jcu1L2Su_gr1" cx="19.38" cy="42.035" r="44.899"
+                      gradientUnits="userSpaceOnUse">
+                      <stop offset="0" stop-color="#fd5"></stop>
+                      <stop offset=".328" stop-color="#ff543f"></stop>
+                      <stop offset=".348" stop-color="#fc5245"></stop>
+                      <stop offset=".504" stop-color="#e64771"></stop>
+                      <stop offset=".643" stop-color="#d53e91"></stop>
+                      <stop offset=".761" stop-color="#cc39a4"></stop>
+                      <stop offset=".841" stop-color="#c837ab"></stop>
+                    </radialGradient>
+                    <path fill="url(#yOrnnhliCrdS2gy~4tD8ma_Xy10Jcu1L2Su_gr1)"
+                      d="M34.017,41.99l-20,0.019c-4.4,0.004-8.003-3.592-8.008-7.992l-0.019-20	c-0.004-4.4,3.592-8.003,7.992-8.008l20-0.019c4.4-0.004,8.003,3.592,8.008,7.992l0.019,20	C42.014,38.383,38.417,41.986,34.017,41.99z">
+                    </path>
+                    <radialGradient id="yOrnnhliCrdS2gy~4tD8mb_Xy10Jcu1L2Su_gr2" cx="11.786" cy="5.54" r="29.813"
+                      gradientTransform="matrix(1 0 0 .6663 0 1.849)" gradientUnits="userSpaceOnUse">
+                      <stop offset="0" stop-color="#4168c9"></stop>
+                      <stop offset=".999" stop-color="#4168c9" stop-opacity="0"></stop>
+                    </radialGradient>
+                    <path fill="url(#yOrnnhliCrdS2gy~4tD8mb_Xy10Jcu1L2Su_gr2)"
+                      d="M34.017,41.99l-20,0.019c-4.4,0.004-8.003-3.592-8.008-7.992l-0.019-20	c-0.004-4.4,3.592-8.003,7.992-8.008l20-0.019c4.4-0.004,8.003,3.592,8.008,7.992l0.019,20	C42.014,38.383,38.417,41.986,34.017,41.99z">
+                    </path>
+                    <path fill="#fff"
+                      d="M24,31c-3.859,0-7-3.14-7-7s3.141-7,7-7s7,3.14,7,7S27.859,31,24,31z M24,19c-2.757,0-5,2.243-5,5	s2.243,5,5,5s5-2.243,5-5S26.757,19,24,19z">
+                    </path>
+                    <circle cx="31.5" cy="16.5" r="1.5" fill="#fff"></circle>
+                    <path fill="#fff"
+                      d="M30,37H18c-3.859,0-7-3.14-7-7V18c0-3.86,3.141-7,7-7h12c3.859,0,7,3.14,7,7v12	C37,33.86,33.859,37,30,37z M18,13c-2.757,0-5,2.243-5,5v12c0,2.757,2.243,5,5,5h12c2.757,0,5-2.243,5-5V18c0-2.757-2.243-5-5-5H18z">
+                    </path>
+                  </svg>
+                </a>
+
+                <a href="https://x.com/nss_sce_kiit" target="_blank" aria-label="X">
+                  <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100"
+                    viewBox="0 0 50 50">
+                    <path
+                      d="M 11 4 C 7.134 4 4 7.134 4 11 L 4 39 C 4 42.866 7.134 46 11 46 L 39 46 C 42.866 46 46 42.866 46 39 L 46 11 C 46 7.134 42.866 4 39 4 L 11 4 z M 13.085938 13 L 21.023438 13 L 26.660156 21.009766 L 33.5 13 L 36 13 L 27.789062 22.613281 L 37.914062 37 L 29.978516 37 L 23.4375 27.707031 L 15.5 37 L 13 37 L 22.308594 26.103516 L 13.085938 13 z M 16.914062 15 L 31.021484 35 L 34.085938 35 L 19.978516 15 L 16.914062 15 z">
+                    </path>
+                  </svg>
+                </a>
+
+                <a href="https://www.youtube.com/c/NSSSCE" target="_blank" aria-label="YouTube">
+                  <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100"
+                    viewBox="0 5 48 38">
+                    <path fill="#FF3D00"
+                      d="M43.2,33.9c-0.4,2.1-2.1,3.7-4.2,4c-3.3,0.5-8.8,1.1-15,1.1c-6.1,0-11.6-0.6-15-1.1c-2.1-0.3-3.8-1.9-4.2-4C4.4,31.6,4,28.2,4,24c0-4.2,0.4-7.6,0.8-9.9c0.4-2.1,2.1-3.7,4.2-4C12.3,9.6,17.8,9,24,9c6.2,0,11.6,0.6,15,1.1c2.1,0.3,3.8,1.9,4.2,4c0.4,2.3,0.9,5.7,0.9,9.9C44,28.2,43.6,31.6,43.2,33.9z">
+                    </path>
+                    <path fill="#FFF" d="M20 31L20 17 32 24z"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+            <div class="flex justify-center mt-4">
+              <button type="button" id="finish-btn"
+                class="text-white bg-[#3B82F6] hover:bg-[#2563EB] focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Finish</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/env.js"></script>
+  <script src="js/firebase-config.js" type="module"></script>
+  <script src="js/form.js" type="module"></script>
+</body>
+
+</html>
