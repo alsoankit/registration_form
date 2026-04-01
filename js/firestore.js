@@ -20,7 +20,8 @@ export async function submitFormToDB(uid, formData) {
   }
 
   try {
-    const docRef = doc(db, "submissions", uid);
+    // const docRef = doc(db, "submissions", uid);
+    const docRef = doc(db, "showcase_submissions", uid); // New collection for showcase
     const docSnap = await getDoc(docRef);
 
     if (docSnap.exists()) {
@@ -44,12 +45,13 @@ export async function submitFormToDB(uid, formData) {
  * @returns {Promise<boolean>} True if registrations are open, false otherwise.
  */
 export async function getRegistrationStatus() {
-  // --- TEMPORARY CHANGE FOR DEMO ---
-  // This is hardcoded to 'true' so the form is always open for showcasing.
-  // The actual setting in Firebase is still 'false'.
+  /*
+  // Reference original check logic here
+  const ref = doc(db, "config", "settings");
+  ...
+  */
   console.warn("Registration status is hardcoded to OPEN for demo purposes.");
   return true;
-  // --- END OF TEMPORARY CHANGE ---
 }
 
 /**
@@ -59,6 +61,7 @@ export async function getRegistrationStatus() {
  * @param {string} email Full email to check (e.g., "25057001@kiit.ac.in")
  * @returns {Promise<boolean>}
  */
+/*
 export async function isEmailAllowlisted(email) {
   try {
     const normalized = (email || "").toLowerCase();
@@ -73,3 +76,4 @@ export async function isEmailAllowlisted(email) {
     return false;
   }
 }
+*/

@@ -412,14 +412,17 @@ document.addEventListener("DOMContentLoaded", () => {
       goToPage(2);
     } else {
       if (result.error === "invalid-email") {
-        showToast("Only @kiit.ac.in emails are allowed.", "error");
+        showToast("Please sign in with a valid Gmail account.", "error");
       } else if (result.error === "ineligible-batch") {
         // extended to 10 seconds
+        /* 
         showToast(
-          "This recruitment drive is only for 2nd year students of School of Computer Engineering. If you are an eligible student, contact us on the phone number given below.",
+          "This recruitment drive is only for 2nd year students... (Commented for Showcase)",
           "error",
           10000
         );
+        */
+        showToast("Access restricted. Please contact support.", "error");
       } else if (result.error !== "auth/popup-closed-by-user") {
         showToast(`Sign-in failed: ${result.error}`, "error");
       }

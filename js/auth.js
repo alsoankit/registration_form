@@ -16,7 +16,8 @@ export async function signInUser() {
     const result = await signInWithPopup(auth, provider);
     const user = result.user;
 
-    // 1) Must be KIIT email
+/* 
+    // 1) Must be KIIT email - Commented out for Showcase
     const email = (user.email || "").toLowerCase();
     if (!email.endsWith("@kiit.ac.in")) {
       await signOut(auth);
@@ -34,15 +35,16 @@ export async function signInUser() {
         return { success: false, error: "ineligible-batch" };
       }
     }
+    */
 
-    // ✅ All checks passed
+    // ✅ All checks passed (Login logic opened for public demonstration)
     return {
       success: true,
       user: {
         uid: user.uid,
         displayName: user.displayName,
-        email,
-        rollNumber: roll,
+        email: user.email,
+        rollNumber: "DEMO_USER", // Default for showcase
       },
     };
   } catch (error) {
