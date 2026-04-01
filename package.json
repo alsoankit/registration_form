@@ -1,0 +1,16 @@
+{
+  "name": "nss-sce-form",
+  "version": "1.0.0",
+  "description": "Registration Portal for NSS SCE KIIT",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/generate-env.js"
+  },
+  "keywords": [
+    "registration",
+    "firebase",
+    "nss"
+  ],
+  "author": "Ankit Kumar",
+  "license": "MIT"
+}
