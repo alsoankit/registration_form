@@ -6,12 +6,12 @@ import {
 import { getFirestore } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const firebaseConfig = {
-  apiKey: process.env.API_KEY,
-  authDomain: process.env.AUTH_DOMAIN,
-  projectId: process.env.PROJECT_ID,
-  storageBucket: process.env.STORAGE_BUCKET,
-  messagingSenderId: process.env.MESSAGING_SENDER_ID,
-  appId: process.env.APP_ID,
+  apiKey: window.process?.env?.API_KEY || "",
+  authDomain: window.process?.env?.AUTH_DOMAIN || "",
+  projectId: window.process?.env?.PROJECT_ID || "",
+  storageBucket: window.process?.env?.STORAGE_BUCKET || "",
+  messagingSenderId: window.process?.env?.MESSAGING_SENDER_ID || "",
+  appId: window.process?.env?.APP_ID || "",
 };
 
 const app = initializeApp(firebaseConfig);

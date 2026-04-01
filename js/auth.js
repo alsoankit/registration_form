@@ -5,7 +5,7 @@ import {
   signOut,
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 import { auth, provider } from "./firebase-config.js";
-import { isEmailAllowlisted } from "./firestore.js"; // 👈 NEW import
+// import { isEmailAllowlisted } from "./firestore.js"; // 👈 NEW import
 
 /**
  * Handles the Google Sign-In popup flow.
